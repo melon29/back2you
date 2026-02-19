@@ -1,11 +1,11 @@
 const routes = {
-   "home": "pages/home.html",
-   "lostpets": "pages/lostpets.html",
-   "foundpets": "pages/foundpets.html",
-   "howitworks": "pages/howitworks.html",
-   "auth": "pages/auth.html",
-   "report": "pages/report.html",
-   "account": "pages/account.html"
+   "home": "home.html",
+   "lostpets": "lostpets.html",
+   "foundpets": "foundpets.html",
+   "howitworks": "howitworks.html",
+   "auth": "auth.html",
+   "report": "report.html",
+   "account": "account.html"
 };
 
 // --- HELPERS ---
