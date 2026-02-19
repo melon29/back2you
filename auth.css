@@ -1,0 +1,102 @@
+#auth-page {
+  height: calc(100vh - 80px);
+  width: 100%;
+}
+
+#login-container,
+#reg-container {
+  width: 400px;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0px 25px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#reg-container {
+  display: none;
+}
+
+#auth-page h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-input,
+.reg-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+#auth-page label {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+#auth-page input {
+  padding: 8px 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+#auth-page input:focus {
+  border-color: #F4C430;
+}
+
+#login-submit-btn,
+#reg-submit-btn {
+  background-color: #C8A15A;
+  color: black;
+  border: 2px solid #A8833D;
+  border-radius: 25px;
+  padding: 8px 12px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: 0.3s all linear;
+  width: 100%;
+}
+
+#login-submit-btn:hover,
+#reg-submit-btn:hover {
+  background-color: #F4C430;
+}
+
+#login-submit-btn:active,
+#reg-submit-btn:active {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* Switch links */
+.auth-bottom-text {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 25px;
+  display: block;
+}
+
+#switch-to-reg,
+#switch-to-login {
+  color: #F4C430;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+#switch-to-reg:hover,
+#switch-to-login:hover {
+  text-decoration: underline;
+}
+
+#switch-to-login:active,
+#switch-to-reg:active {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}

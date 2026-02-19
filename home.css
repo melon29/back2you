@@ -1,0 +1,359 @@
+#home-hero {
+   width: 1200px;
+   height: 400px;
+   margin: 0px auto;
+   box-sizing: border-box;
+   display: flex;
+}
+
+#home-heroText {
+   width: 65%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+#home-heroText h3 {
+   margin: 0px;
+   font-size: 32px;
+   color: #111111;
+}
+
+#home-heroText span {
+   font-size: 26px;
+   color: #6F7F73;
+   margin-top: 20px;
+}
+
+#home-heroImg {
+   flex: 1;
+   display: flex;
+   justify-content: center;
+}
+
+#home-heroImg img {
+   height: 100%;
+   width: auto;
+}
+
+#home-hero-reportBtn {
+   background-color: #C8A15A;
+   color: black;
+   border: 2px solid #A8833D;
+   border-radius: 25px;
+   margin-top: 50px;
+   padding: 15px 25px;
+   font-size: 24px;
+   cursor: pointer;
+   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+   transition: 0.3s all linear;
+}
+
+#home-hero-reportBtn:hover {
+   box-shadow: 0px 0px 40px rgba(0, 0, 0, 1);
+}
+
+#home-hero-reportBtn:active {
+   -webkit-tap-highlight-color: transparent;
+   outline: none;
+}
+
+#howitworks {
+   background-color: #AABDAF;
+   width: 100%;
+   padding: 25px;
+   box-sizing: border-box;
+}
+
+#howitworks h1 {
+   text-align: center;
+   margin: 25px 0px 0px;
+   font-size: 32px;
+}
+
+#hiw-cards-container {
+   display: flex;
+   gap: 50px;
+   padding: 50px;
+}
+
+.hiw-card {
+   flex: 1;
+   height: 400px;
+   background-color: #EFE6D8;
+   border-radius: 15px;
+   border: 2px solid #8A9A8E;
+   transition: all 0.3s linear;
+   display: flex;
+   flex-direction: column;
+}
+
+.hiw-card:hover {
+   transform: scale(1.025);
+}
+
+.hiw-card-img {
+   height: 250px;
+   width: 100%;
+   text-align: center;
+}
+
+.hiw-card-img img {
+   height: 100%;
+   width: auto;
+}
+
+.hiw-card-text {
+   height: 150px;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.hiw-card-text h1 {
+   font-size: 26px;
+   margin: 0px;
+}
+
+.hiw-card-text span {
+   font-size: 22px;
+}
+
+#home-hiw-more-btn {
+   background-color: #C8A15A;
+   color: black;
+   border: 2px solid #A8833D;
+   border-radius: 25px;
+   margin: 0px auto 25px;
+   padding: 15px 25px;
+   font-size: 24px;
+   cursor: pointer;
+   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+   transition: 0.3s all linear;
+   display: block;
+}
+
+#home-hiw-more-btn:hover {
+   box-shadow: 0px 0px 40px rgba(0, 0, 0, 1);
+}
+
+#home-hiw-more-btn:active {
+   -webkit-tap-highlight-color: transparent;
+   outline: none;
+}
+
+#home-lost-pets-spotlight {
+   width: 100%;
+   box-sizing: border-box;
+   margin: 50px 0px;
+   background-color: #CFDFD3;
+   padding: 50px 0px;
+}
+
+#home-lost-pets-spotlight h1 {
+   margin: 0px;
+   margin-bottom: 50px;
+   text-align: center;
+   font-size: 32px;
+}
+
+#home-lost-pets-cards-container {
+   display: flex;
+   justify-content: center;
+   gap: 100px;
+}
+
+.home-lost-pets-card {
+   width: 300px;
+   height: 400px;
+   background-color: white;
+   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.9);
+   border-radius: 25px;
+   cursor: pointer;
+}
+
+.home-lost-pets-img {
+   height: 250px;
+   width: 100%;
+   overflow: hidden;
+   background-color: #E8F7EC;
+   border-radius: 25px;
+   text-align: center;
+}
+
+.home-lost-pets-img img {
+   height: auto;
+   width: 100%;
+}
+
+.home-lost-pets-text {
+   height: 150px;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   gap: 15px;
+}
+
+.home-lost-pets-text span {
+   text-align: center;
+   font-size: 20px;
+}
+
+#home-lost-pets-spotlight-btn {
+   background-color: #C8A15A;
+   color: black;
+   border: 2px solid #A8833D;
+   border-radius: 25px;
+   margin: 50px auto 0px;
+   padding: 15px 25px;
+   font-size: 24px;
+   cursor: pointer;
+   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+   transition: 0.3s all linear;
+   display: block;
+}
+
+#home-lost-pets-spotlight-btn:hover {
+   box-shadow: 0px 0px 40px rgba(0, 0, 0, 1);
+}
+
+#home-lost-pets-spotlight-btn:active {
+   -webkit-tap-highlight-color: transparent;
+   outline: none;
+}
+
+/* ── RECENT REUNIONS ──────────────────────────────── */
+#recent-reunions {
+   background-color: #DBEFE0;
+   padding: 50px 0px 60px;
+   width: 100%;
+}
+
+#recent-reunions h1 {
+   text-align: center;
+   margin: 0px 0px 50px;
+   font-size: 32px;
+}
+
+#recent-reunions-cards-container {
+   display: flex;
+   justify-content: center;
+   gap: 60px;
+   flex-wrap: wrap;
+   padding: 0 40px;
+}
+
+.recent-reunions-card {
+   width: 300px;
+   background-color: white;
+   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+   border-radius: 20px;
+   overflow: hidden;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recent-reunions-card:hover {
+   transform: translateY(-6px);
+   box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.rr-card-img {
+   height: 300px;
+   width: 100%;
+   overflow: hidden;
+   background-color: #E8F7EC;
+}
+
+.rr-card-img img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.rr-card-text {
+   padding: 16px 18px 20px;
+   display: flex;
+   flex-direction: column;
+   gap: 6px;
+}
+
+.rr-pet-name {
+   font-size: 1.15rem;
+   font-weight: 700;
+   color: #111;
+}
+
+.rr-pet-location {
+   font-size: 0.82rem;
+   color: #6F7F73;
+}
+
+.rr-pet-days {
+   display: inline-block;
+   background-color: #EFE6D8;
+   border: 1px solid #C8A15A;
+   color: #C8A15A;
+   font-size: 0.75rem;
+   font-weight: 600;
+   padding: 3px 10px;
+   border-radius: 50px;
+   width: fit-content;
+   margin: 4px 0;
+}
+
+.rr-owner-msg {
+   font-size: 0.82rem;
+   color: #555;
+   font-style: italic;
+   line-height: 1.5;
+   border-left: 3px solid #C8A15A;
+   padding-left: 10px;
+   margin-top: 6px;
+}
+
+/* ── EMAIL SUBSCRIPTION ───────────────────────────── */
+#email-subscription {
+   width: 100%;
+   background-color: white;
+   height: 400px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 50px;
+}
+
+#email-sub-heading {
+   text-align: center;
+   font-size: 24px;
+}
+
+#email-sub-heading h2 {
+   margin: 0px;
+   margin-bottom: 10px;
+}
+
+#email-sub-input {
+   background-color: #FAF7F2;
+   border: 1px solid #8A9A8E;
+   border-radius: 25px;
+   width: 350px;
+   padding: 12px 16px;
+   cursor: pointer;
+   font-size: 20px;
+}
+
+#email-sub-btn {
+   background-color: #B0C5B5;
+   border: 2px solid #8A9A8E;
+   border-radius: 25px;
+   margin: 0px;
+   margin-left: 15px;
+   padding: 12px 16px;
+   font-size: 20px;
+   cursor: pointer;
+}

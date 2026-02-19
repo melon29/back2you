@@ -1,0 +1,113 @@
+#acc-section {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   width: 100%;
+}
+
+.account-modal {
+   background: #fff;
+   padding: 30px;
+   border-radius: 12px;
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+   width: 700px;
+   height: 500px;
+   text-align: left;
+   box-sizing: border-box;
+   position: relative;
+}
+
+.account-modal h2 {
+   margin: 40px 0px;
+}
+
+.account-info p,
+.past-reports ul {
+   margin: 8px 0;
+}
+
+button#logout-btn {
+   margin-top: 20px;
+   padding: 10px 15px;
+   border: 1px solid #A8833D;
+   border-radius: 6px;
+   background-color: #C8A15A;
+   color: #fff;
+   cursor: pointer;
+   width: 200px;
+   position: absolute;
+   bottom: 30px;
+   right: 30px;
+   font-size: 20px;
+}
+
+button#logout-btn:hover {
+   background-color: #8E6F35;
+}
+
+#logout-btn:active {
+   -webkit-tap-highlight-color: transparent;
+   outline: none;
+}
+
+/* ── Account Page: Report List Items ───────────────── */
+.account-report-item {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   padding: 10px 0;
+   border-bottom: 1px solid #f0f0f0;
+   list-style: none;
+}
+
+.account-report-item:last-child {
+   border-bottom: none;
+}
+
+.account-report-item div {
+   flex: 1;
+   font-size: 0.9rem;
+   line-height: 1.5;
+}
+
+.account-report-item small {
+   color: #888;
+}
+
+/* ── "Reunited" Remove Button (on cards) ─────────── */
+.lost-pet-remove-btn {
+   margin-top: 6px;
+   width: 100%;
+   padding: 7px 0;
+   background-color: #e8f5e9;
+   color: #2e7d32;
+   border: 1px solid #a5d6a7;
+   border-radius: 8px;
+   cursor: pointer;
+   font-size: 0.8rem;
+   font-weight: 600;
+   transition: background 0.2s;
+}
+
+.lost-pet-remove-btn:hover {
+   background-color: #c8e6c9;
+}
+
+/* ── "Reunited" Remove Button (on account page) ──── */
+.remove-report-btn {
+   padding: 5px 10px;
+   background-color: #e8f5e9;
+   color: #2e7d32;
+   border: 1px solid #a5d6a7;
+   border-radius: 6px;
+   cursor: pointer;
+   font-size: 0.78rem;
+   font-weight: 600;
+   white-space: nowrap;
+   transition: background 0.2s;
+}
+
+.remove-report-btn:hover {
+   background-color: #c8e6c9;
+}
