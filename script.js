@@ -1,12 +1,13 @@
 alert("JS is working");
+
 const routes = {
-   "home": "home.html",
-   "lostpets": "lostpets.html",
-   "foundpets": "foundpets.html",
-   "howitworks": "howitworks.html",
-   "auth": "auth.html",
-   "report": "report.html",
-   "account": "account.html"
+   home: "home.html",
+   lostpets: "lostpets.html",
+   foundpets: "foundpets.html",
+   howitworks: "howitworks.html",
+   auth: "auth.html",
+   report: "report.html",
+   account: "account.html"
 };
 
 // ---------- HELPERS ----------
@@ -21,12 +22,14 @@ function isUserLoggedIn() {
 
 function updateNav() {
    const navList = document.getElementById("menuNavul");
-   const lastLi = navList.querySelector("li:last-child a");
+   const lastLink = navList.querySelector("li:last-child a");
 
    if (isUserLoggedIn()) {
-      lastLi.innerHTML = `Account`;
+      lastLink.textContent = "Account";
+      lastLink.dataset.page = "account";
    } else {
-      lastLi.innerHTML = `<i class="fa-solid fa-arrow-right-to-bracket" style="margin-right:10px"></i>Login`;
+      lastLink.innerHTML = `<i class="fa-solid fa-arrow-right-to-bracket" style="margin-right:10px"></i>Login`;
+      lastLink.dataset.page = "login";
    }
 }
 
@@ -52,8 +55,8 @@ function loadPage(page) {
       .then(html => {
          pageDiv.innerHTML = html;
 
-         if (page === "lostpets" || page === "foundpets") initLostPets();
-         if (page === "report") initReportPage();
+         if (page === "lostpets" || page === "foundpets") initLostPets?.();
+         if (page === "report") initReportPage?.();
          if (page === "account") initAccountPage();
       })
       .catch(() => {
@@ -71,19 +74,21 @@ document.addEventListener("DOMContentLoaded", () => {
 // ---------- NAVIGATION ----------
 
 document.getElementById("menuNavul").addEventListener("click", e => {
-   e.preventDefault();
-   const txt = e.target.textContent.trim();
+   const link = e.target.closest(".menuNavlist");
+   if (!link) return;
+
+   const page = link.dataset.page;
 
    const map = {
-      "Home": "home",
-      "Found Pets": "foundpets",
-      "Lost Pets": "lostpets",
-      "How it works": "howitworks",
-      "Login": "auth",
-      "Account": "account"
+      home: "home",
+      found: "foundpets",
+      lost: "lostpets",
+      how: "howitworks",
+      login: "auth",
+      account: "account"
    };
 
-   if (map[txt]) loadPage(map[txt]);
+   if (map[page]) loadPage(map[page]);
 });
 
 // ---------- REPORT BUTTON ----------
