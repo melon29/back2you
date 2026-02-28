@@ -1,94 +1,156 @@
 <section id="report-section">
-   <div id="report-container">
-      <div id="report-slider-container">
-         <input type="checkbox" id="toggle" class="toggleCheckbox" />
-         <label for="toggle" class='toggleContainer'>
-            <div>Lost Pet</div>
-            <div>Found Pet</div>
-         </label>
+  <div id="report-container">
+    <div id="report-slider-container">
+      <input type="checkbox" id="toggle" class="toggleCheckbox" />
+      <label for="toggle" class="toggleContainer">
+        <div>Lost Pet</div>
+        <div>Found Pet</div>
+      </label>
+    </div>
+
+    <div id="report-form-container">
+      <!-- LOST PET FORM -->
+      <div id="report-lost-container">
+        <h2>Report a Lost Pet</h2>
+        <form id="lost-pet-form">
+          <label>Pet Name:
+            <input type="text" name="pet_name" required />
+          </label>
+
+          <fieldset>
+            <legend>Gender:</legend>
+            <label><input type="radio" name="gender" value="male" required /> Male</label>
+            <label><input type="radio" name="gender" value="female" /> Female</label>
+            <label><input type="radio" name="gender" value="unknown" /> Unknown</label>
+          </fieldset>
+
+          <label>Animal Type:
+            <select name="animal_type" required>
+              <option value="">Select</option>
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+              <option value="bird">Bird</option>
+              <option value="rabbit">Rabbit</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+
+          <label>Breed:
+            <input type="text" name="breed" />
+          </label>
+
+          <label>Last Seen Location:
+            <div class="autocomplete-wrapper">
+              <input type="text" name="location" id="lost-location-input" placeholder="Type area or landmark..." autocomplete="off" required />
+              <ul class="autocomplete-dropdown" id="lost-location-dropdown"></ul>
+            </div>
+          </label>
+
+          <label>Landmark / Area Detail:
+            <input type="text" name="landmark" placeholder="e.g. Near Viviana Mall, Hiranandani Estate..." />
+          </label>
+
+          <label>Date Lost:
+            <input type="date" name="date" required />
+          </label>
+
+          <label>Upload Image:
+            <input type="file" id="lost-img" name="image" accept="image/*" required onchange="previewImage(this,'lost-preview')" />
+          </label>
+
+          <img id="lost-preview" class="image-preview" />
+
+          <label>Description:
+            <textarea name="description" rows="4" required></textarea>
+          </label>
+
+          <button type="submit">Submit Lost Pet Report</button>
+        </form>
       </div>
-      <div id="report-form-container">
-         <div id="report-lost-container">
-            <h2>Report a Lost Pet</h2>
-            <form id="lost-pet-form">
-               <label>Pet Name: <input type="text" name="pet_name" required /></label>
-               <fieldset>
-                  <legend>Gender:</legend>
-                  <label style="font-weight:normal;"><input type="radio" name="gender" value="male" required /> Male</label>
-                  <label style="font-weight:normal;"><input type="radio" name="gender" value="female" /> Female</label>
-                  <label style="font-weight:normal;"><input type="radio" name="gender" value="unknown" /> Unknown</label>
-               </fieldset>
-               <label>Animal Type:
-                  <select name="animal_type" required>
-                     <option value="">Select</option>
-                     <option value="dog">Dog</option>
-                     <option value="cat">Cat</option>
-                     <option value="bird">Bird</option>
-                     <option value="rabbit">Rabbit</option>
-                     <option value="other">Other</option>
-                  </select>
-               </label>
-               <label>Breed: <input type="text" name="breed" /></label>
-               
-               <!-- Location Autocomplete -->
-               <label>Last Seen Location:
-                  <div class="autocomplete-wrapper">
-                     <input type="text" name="location" id="lost-location-input" placeholder="Type area or landmark..." autocomplete="off" required />
-                     <ul class="autocomplete-dropdown" id="lost-location-dropdown"></ul>
-                  </div>
-               </label>
-               
-               <label>Last Seen Landmark / Area Detail:
-                  <input type="text" name="landmark" id="lost-landmark-input" placeholder="e.g. Near Viviana Mall, Hiranandani Estate..." />
-               </label>
-               
-               <label>Date Lost: <input type="date" name="date" required /></label>
-               <label>Upload Image: <input type="file" name="image" accept="image/*" required /></label>
-               <label>Description: <textarea name="description" rows="4" required></textarea></label>
-               <button type="submit">Submit Lost Pet Report</button>
-            </form>
-         </div>
-         
-         <div id="report-found-container">
-            <h2>Report a Found Pet</h2>
-            <form id="found-pet-form">
-               <label>Pet Name (if known): <input type="text" name="pet_name" /></label>
-               <fieldset>
-                  <legend>Gender (if known):</legend>
-                  <label style="font-weight:normal;"><input type="radio" name="gender" value="male" /> Male</label>
-                  <label style="font-weight:normal;"><input type="radio" name="gender" value="female" /> Female</label>
-                  <label style="font-weight:normal;"><input type="radio" name="gender" value="unknown" checked /> Unknown</label>
-               </fieldset>
-               <label>Animal Type:
-                  <select name="animal_type" required>
-                     <option value="">Select</option>
-                     <option value="dog">Dog</option>
-                     <option value="cat">Cat</option>
-                     <option value="bird">Bird</option>
-                     <option value="rabbit">Rabbit</option>
-                     <option value="other">Other</option>
-                  </select>
-               </label>
-               <label>Breed (if known): <input type="text" name="breed" /></label>
-               
-               <!-- Location Autocomplete -->
-               <label>Found Location:
-                  <div class="autocomplete-wrapper">
-                     <input type="text" name="location" id="found-location-input" placeholder="Type area or landmark..." autocomplete="off" required />
-                     <ul class="autocomplete-dropdown" id="found-location-dropdown"></ul>
-                  </div>
-               </label>
-               
-               <label>Landmark / Area Detail:
-                  <input type="text" name="landmark" id="found-landmark-input" placeholder="e.g. Near Powai Lake, Oberoi Mall..." />
-               </label>
-               
-               <label>Date Found: <input type="date" name="date" required /></label>
-               <label>Upload Image: <input type="file" name="image" accept="image/*" required /></label>
-               <label>Description: <textarea name="description" rows="4" placeholder="Color, size, collar, behavior, injuries, etc." required></textarea></label>
-               <button type="submit">Submit Found Pet Report</button>
-            </form>
-         </div>
+
+      <!-- FOUND PET FORM -->
+      <div id="report-found-container">
+        <h2>Report a Found Pet</h2>
+        <form id="found-pet-form">
+          <label>Pet Name (if known):
+            <input type="text" name="pet_name" />
+          </label>
+
+          <fieldset>
+            <legend>Gender (if known):</legend>
+            <label><input type="radio" name="gender" value="male" /> Male</label>
+            <label><input type="radio" name="gender" value="female" /> Female</label>
+            <label><input type="radio" name="gender" value="unknown" checked /> Unknown</label>
+          </fieldset>
+
+          <label>Animal Type:
+            <select name="animal_type" required>
+              <option value="">Select</option>
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+              <option value="bird">Bird</option>
+              <option value="rabbit">Rabbit</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+
+          <label>Breed (if known):
+            <input type="text" name="breed" />
+          </label>
+
+          <label>Found Location:
+            <div class="autocomplete-wrapper">
+              <input type="text" name="location" id="found-location-input" placeholder="Type area or landmark..." autocomplete="off" required />
+              <ul class="autocomplete-dropdown" id="found-location-dropdown"></ul>
+            </div>
+          </label>
+
+          <label>Landmark / Area Detail:
+            <input type="text" name="landmark" placeholder="e.g. Near Powai Lake, Oberoi Mall..." />
+          </label>
+
+          <label>Date Found:
+            <input type="date" name="date" required />
+          </label>
+
+          <label>Upload Image:
+            <input type="file" id="found-img" name="image" accept="image/*" required onchange="previewImage(this,'found-preview')" />
+          </label>
+
+          <img id="found-preview" class="image-preview" />
+
+          <label>Description:
+            <textarea name="description" rows="4" placeholder="Color, size, collar, behavior, injuries, etc." required></textarea>
+          </label>
+
+          <button type="submit">Submit Found Pet Report</button>
+        </form>
       </div>
-   </div>
+    </div>
+  </div>
 </section>
+
+<style>
+.image-preview {
+  width: 100%;
+  max-width: 300px;
+  margin-top: 10px;
+  border-radius: 12px;
+  display: none;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+</style>
+
+<script>
+function previewImage(input, previewId) {
+  const preview = document.getElementById(previewId);
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      preview.src = e.target.result;
+      preview.style.display = "block";
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
