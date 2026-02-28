@@ -266,3 +266,23 @@ function initAccountPage() {
       `).join("");
    }
 }
+// ===== Back2You Enhancement =====
+
+function previewImage(input, previewId) {
+  const preview = document.getElementById(previewId);
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = e => preview.src = e.target.result;
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+function savePetData(pet) {
+  let pets = JSON.parse(localStorage.getItem("pets")) || [];
+  pets.push(pet);
+  localStorage.setItem("pets", JSON.stringify(pets));
+}
+
+function loadPets() {
+  return JSON.parse(localStorage.getItem("pets")) || [];
+}
