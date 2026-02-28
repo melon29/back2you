@@ -7,79 +7,60 @@
   <title>Back2You — Reuniting Lost Pets</title>
 
   <link rel="stylesheet" href="index.css" />
-  <link rel="stylesheet" href="home.css" id="home-css" />
-  <link rel="stylesheet" href="user.css" id="user-css" />
-  <link rel="stylesheet" href="auth.css" id="auth-css" />
-  <link rel="stylesheet" href="lostfoundpets.css" id="lostfoundpets-css" />
-  <link rel="stylesheet" href="report.css" id="report-css" />
-  <link rel="stylesheet" href="howitworks.css" id="howitworks-css" />
-  <link rel="stylesheet" href="account.css" id="account-css" />
+  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="user.css" />
+  <link rel="stylesheet" href="auth.css" />
+  <link rel="stylesheet" href="lostfoundpets.css" />
+  <link rel="stylesheet" href="report.css" />
+  <link rel="stylesheet" href="howitworks.css" />
+  <link rel="stylesheet" href="account.css" />
 
   <script src="https://kit.fontawesome.com/1a2e040597.js" crossorigin="anonymous"></script>
-
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <header>
-    <img src="https://i.ibb.co/NbSWbWw/logo.png" id="logo" alt="Back2You Logo" />
+<header>
+  <img src="https://i.ibb.co/NbSWbWw/logo.png" id="logo" alt="Back2You Logo" />
 
-    <div class="nav-wrapper">
-      <nav id="menuNav">
-        <ul id="menuNavul">
-          <li><a class="menuNavlist" data-page="home">Home</a></li>
-          <li><a class="menuNavlist" data-page="found">Found Pets</a></li>
-          <li><a class="menuNavlist" data-page="lost">Lost Pets</a></li>
-          <li><a class="menuNavlist" data-page="how">How it Works</a></li>
-          <li>
-            <a class="menuNavlist" data-page="login">
-              <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
-            </a>
-          </li>
-        </ul>
-      </nav>
+  <div class="nav-wrapper">
+    <nav id="menuNav">
+      <ul id="menuNavul">
+        <li><a class="menuNavlist">Home</a></li>
+        <li><a class="menuNavlist">Found Pets</a></li>
+        <li><a class="menuNavlist">Lost Pets</a></li>
+        <li><a class="menuNavlist">How it works</a></li>
+        <li><a class="menuNavlist"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a></li>
+      </ul>
+    </nav>
 
-      <button id="reportPetBtn">Report a Pet</button>
-    </div>
-  </header>
-
-  <div id="login-alert-box">
-    <i class="fa-solid fa-circle-xmark" id="login-alert-box-close-btn"></i>
-    <span>You need to login to report a Lost or Found Pet</span>
+    <button id="reportPetBtn">Report a Pet</button>
   </div>
+</header>
 
-  <main id="page">
-    <!-- Dynamic Pages Load Here -->
-  </main>
+<div id="login-alert-box">
+  <i class="fa-solid fa-circle-xmark" id="login-alert-box-close-btn"></i>
+  <span>You need to login to report a Lost or Found Pet</span>
+</div>
 
-  <footer id="footer">
-    <ul>
-      <li>Home</li>
-      <li>About Us</li>
-      <li>Lost Pets</li>
-      <li>Found Pets</li>
-      <li>Terms & Conditions</li>
-      <li>Email: support@back2you.com</li>
-    </ul>
+<main id="page"></main>
 
-    <p class="copyright">
-      © 2026 Back2You. All Rights Reserved.
-    </p>
-  </footer>
+<footer id="footer">
+  <ul>
+    <li>Home</li>
+    <li>About Us</li>
+    <li>Lost Pets</li>
+    <li>Found Pets</li>
+    <li>Terms & Conditions</li>
+    <li>Email: support@back2you.com</li>
+  </ul>
+  <p class="copyright">© 2026 Back2You. All Rights Reserved.</p>
+</footer>
 
-  <script src="autocomplete.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-<script>
-  (function () {
-    emailjs.init("N3oait_zrsc5QNFwQ");
-  })();
-</script>
-
+<script src="autocomplete.js" defer></script>
 <script src="pets.js" defer></script>
 <script src="script.js" defer></script>
 
 </body>
-
 </html>
