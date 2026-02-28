@@ -1,3 +1,4 @@
+alert("JS is working");
 const routes = {
    "home": "home.html",
    "lostpets": "lostpets.html",
