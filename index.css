@@ -1,60 +1,269 @@
-body {
+/* ================= RESET & BASE ================= */
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #f7f7f7;
+  padding: 0;
 }
 
-nav {
+html, body {
+  width: 100%;
+  min-height: 100%;
+  font-family: 'Lato', sans-serif;
+  background-color: #FAF7F2;
+  color: #222;
+  scroll-behavior: smooth;
+  user-select: none;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.5px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* ================= HEADER ================= */
+
+header {
+  height: 80px;
+  width: 100%;
+  background: rgba(138, 154, 142, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   justify-content: space-between;
-  padding: 15px 25px;
-  background: #ff7a18;
-  color: white;
+  align-items: center;
+  padding: 0 60px 0 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
 
-nav button {
-  margin-left: 10px;
-  padding: 8px 14px;
-  border: none;
-  border-radius: 6px;
-  background: white;
-  color: #ff7a18;
-  font-weight: bold;
+#logo {
+  height: 100%;
+  width: auto;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-#app {
-  padding: 20px;
+#logo:hover {
+  transform: scale(1.03);
 }
 
-.card {
-  background: white;
-  padding: 15px;
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+#menuNavul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.menuNavlist {
+  font-size: 20px;
+  padding: 8px 14px;
+  border-radius: 16px;
+  transition: all 0.25s ease;
+  color: #000;
+}
+
+.menuNavlist:hover {
+  background-color: #C8A15A;
+  color: #000;
+}
+
+#reportPetBtn {
+  background: linear-gradient(135deg,#c8a15a,#a8833d);
+  color: #000;
+  padding: 9px 16px;
+  border-radius: 18px;
+  font-size: 18px;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+#reportPetBtn:hover {
+  background: linear-gradient(135deg,#b89249,#92733a);
+  transform: translateY(-1px);
+}
+
+/* ================= MAIN PAGE ================= */
+
+#page {
+  min-height: calc(100vh - 280px);
+  width: 100%;
+  padding: 20px 40px;
+}
+
+/* ================= LOGIN ALERT ================= */
+
+#login-alert-box {
+  position: fixed;
+  top: -120%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 420px;
+  height: 200px;
+  border-radius: 22px;
+  border: 2px solid #222;
+  background: #ccd6cf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  transition: all 0.35s ease;
+  z-index: 2000;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+#login-alert-box span {
+  font-size: 20px;
+  text-align: center;
+}
+
+#login-alert-box-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 26px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#login-alert-box-close-btn:hover {
+  transform: scale(1.15);
+}
+
+/* ================= FOOTER ================= */
+
+#footer {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg,#555,#333);
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+#footer ul li {
+  display: inline;
+  margin: 0 12px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+#footer ul li:hover {
+  text-decoration: underline;
+  color: #f5d38a;
+}
+
+.copyright {
+  font-size: 15px;
+  opacity: 0.75;
+}
+
+/* ================= FORM COMMON ================= */
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px 12px;
   border-radius: 10px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,.1);
-}
-
-input, select, textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 6px;
   border: 1px solid #ccc;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.25s ease;
 }
 
-button.primary {
-  background: #ff7a18;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 6px;
-  width: 100%;
-  font-size: 16px;
+input:focus, textarea:focus, select:focus {
+  border-color: #c8a15a;
+  box-shadow: 0 0 0 2px rgba(200,161,90,0.25);
 }
 
-img.preview {
+/* ================= IMAGE PREVIEW ================= */
+
+.image-preview {
   width: 100%;
-  border-radius: 8px;
+  max-width: 300px;
   margin-top: 10px;
+  border-radius: 14px;
+  display: none;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+  header {
+    padding: 0 20px;
+  }
+
+  #menuNavul {
+    gap: 14px;
+  }
+
+  .menuNavlist {
+    font-size: 16px;
+  }
+
+  #reportPetBtn {
+    font-size: 16px;
+  }
+
+  #page {
+    padding: 15px 15px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .nav-wrapper {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #menuNavul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #footer {
+    height: auto;
+    padding: 20px 10px;
+  }
+
 }
