@@ -1,63 +1,50 @@
-alert("JS is working");
+console.clear();
 
 // -------- ROUTES --------
 const routes = {
-  "home": "home.html",
-  "lostpets": "lostpets.html",
-  "foundpets": "foundpets.html",
-  "howitworks": "howitworks.html",
-  "auth": "auth.html",
-  "report": "report.html",
-  "account": "account.html"
+  home: "home.html",
+  lostpets: "lostpets.html",
+  foundpets: "foundpets.html",
+  auth: "auth.html",
+  report: "report.html",
+  account: "account.html"
 };
 
 // -------- HELPERS --------
-function getLoggedInUser() {
-  return localStorage.getItem("loggedInUser");
-}
-
-function isUserLoggedIn() {
-  return !!localStorage.getItem("loggedInUser");
-}
+const getLoggedInUser = () => localStorage.getItem("loggedInUser");
+const isUserLoggedIn = () => !!localStorage.getItem("loggedInUser");
 
 function updateNav() {
   const navList = document.getElementById("menuNavul");
   const lastLi = navList.querySelector("li:last-child a");
 
-  if (isUserLoggedIn()) {
-    lastLi.innerHTML = `Account`;
-  } else {
-    lastLi.innerHTML = `<i class="fa-solid fa-arrow-right-to-bracket" style="margin-right:10px"></i>Login`;
-  }
+  lastLi.innerHTML = isUserLoggedIn()
+    ? "Account"
+    : `<i class="fa-solid fa-arrow-right-to-bracket" style="margin-right:8px"></i> Login`;
 }
 
 // -------- ROUTER --------
 function loadPage(page) {
   const pageDiv = document.getElementById("page");
 
-  // Redirect logged in user trying to access auth page
   if (page === "auth" && isUserLoggedIn()) page = "account";
 
-  // Protect pages
   if ((page === "account" || page === "report") && !isUserLoggedIn()) {
-    loadPage("auth");
-    return;
+    page = "auth";
   }
 
-  const pageUrl = routes[page];
-  if (!pageUrl) {
+  if (!routes[page]) {
     pageDiv.innerHTML = "<h2 style='text-align:center'>Page Not Found</h2>";
     return;
   }
 
   pageDiv.innerHTML = `<div style="text-align:center;padding:60px;font-size:22px;">Loading...</div>`;
 
-  fetch(pageUrl)
+  fetch(routes[page])
     .then(res => res.text())
     .then(html => {
       pageDiv.innerHTML = html;
 
-      // Initialize page-specific JS
       if (page === "lostpets" || page === "foundpets") initLostPets();
       if (page === "report") initReportPage();
       if (page === "account") initAccountPage();
@@ -73,26 +60,25 @@ document.addEventListener("DOMContentLoaded", () => {
   loadPage("home");
 });
 
-// -------- NAVIGATION --------
+// -------- NAVIGATION HANDLER --------
 document.getElementById("menuNavul").addEventListener("click", e => {
   e.preventDefault();
+
   let target = e.target;
-
-  // Fix: If clicking <i> inside link
   if (target.tagName === "I") target = target.parentElement;
+  if (!target.classList.contains("menuNavlist")) return;
 
-  const txt = target.textContent.trim();
+  const text = target.textContent.trim();
 
   const map = {
-    "Home": "home",
+    Home: "home",
     "Found Pets": "foundpets",
     "Lost Pets": "lostpets",
-    "How it Works": "howitworks",
-    "Login": "auth",
-    "Account": "account"
+    Login: "auth",
+    Account: "account"
   };
 
-  if (map[txt]) loadPage(map[txt]);
+  if (map[text]) loadPage(map[text]);
 });
 
 // -------- REPORT BUTTON --------
@@ -106,55 +92,55 @@ document.getElementById("reportPetBtn").addEventListener("click", () => {
 
 // -------- ALERT CLOSE --------
 document.getElementById("login-alert-box-close-btn").addEventListener("click", () => {
-  document.getElementById("login-alert-box").style.top = "-110%";
+  document.getElementById("login-alert-box").style.top = "-120%";
 });
 
 // -------- GLOBAL CLICK HANDLER --------
 document.addEventListener("click", e => {
   if (!e.target) return;
 
-  switch(e.target.id) {
+  switch (e.target.id) {
     case "home-hero-reportBtn":
-      if (isUserLoggedIn()) loadPage("report");
-      else {
-        document.getElementById("login-alert-box").style.top = "10%";
-        loadPage("auth");
-      }
+      isUserLoggedIn() ? loadPage("report") : loadPage("auth");
       break;
-    case "home-hiw-more-btn":
-      loadPage("howitworks");
-      break;
+
     case "home-lost-pets-spotlight-btn":
       loadPage("lostpets");
       break;
+
     case "switch-to-reg":
       document.getElementById("login-container").style.display = "none";
       document.getElementById("reg-container").style.display = "block";
       break;
+
     case "switch-to-login":
       document.getElementById("reg-container").style.display = "none";
       document.getElementById("login-container").style.display = "block";
       break;
+
     case "login-submit-btn":
       loginUser();
       break;
+
     case "logout-btn":
       logoutUser();
       break;
+
     case "reg-submit-btn":
       registerUser();
       break;
   }
 });
 
-// -------- LOGIN / LOGOUT / REGISTER --------
+// -------- LOGIN --------
 function loginUser() {
   const email = document.getElementById("userEmail").value.trim();
   const password = document.getElementById("userPassword").value;
-  const storedUser = localStorage.getItem("user_" + email);
-  if (!storedUser) return alert("User not found");
 
-  const user = JSON.parse(storedUser);
+  const stored = localStorage.getItem("user_" + email);
+  if (!stored) return alert("User not found");
+
+  const user = JSON.parse(stored);
   if (user.password !== password) return alert("Incorrect password");
 
   localStorage.setItem("loggedInUser", email);
@@ -162,12 +148,14 @@ function loginUser() {
   loadPage("account");
 }
 
+// -------- LOGOUT --------
 function logoutUser() {
   localStorage.removeItem("loggedInUser");
   updateNav();
   loadPage("home");
 }
 
+// -------- REGISTER --------
 function registerUser() {
   const name = document.getElementById("user-name").value.trim();
   const email = document.getElementById("user-email").value.trim();
@@ -186,7 +174,7 @@ function registerUser() {
   document.getElementById("login-container").style.display = "block";
 }
 
-// -------- ACCOUNT PAGE INIT --------
+// -------- ACCOUNT PAGE --------
 function initAccountPage() {
   const email = getLoggedInUser();
   const data = localStorage.getItem("user_" + email);
@@ -199,7 +187,7 @@ function initAccountPage() {
   document.getElementById("account-pincode").textContent = user.pincode || "Not provided";
 }
 
-// -------- IMAGE PREVIEW & PET STORAGE --------
+// -------- IMAGE PREVIEW --------
 function previewImage(input, previewId) {
   const preview = document.getElementById(previewId);
   if (input.files && input.files[0]) {
@@ -210,8 +198,9 @@ function previewImage(input, previewId) {
   }
 }
 
+// -------- PET STORAGE --------
 function savePetData(pet) {
-  let pets = JSON.parse(localStorage.getItem("pets")) || [];
+  const pets = JSON.parse(localStorage.getItem("pets")) || [];
   pets.push(pet);
   localStorage.setItem("pets", JSON.stringify(pets));
 }
