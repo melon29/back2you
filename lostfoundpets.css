@@ -507,3 +507,79 @@
     font-size: 20px;
   }
 }
+/* ===== PET POPUP MODAL IMPROVEMENT ===== */
+
+#pet-popup,
+.pet-popup,
+.popup-card,
+.modal-content {
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  padding: 20px;
+  max-width: 850px;
+  width: 95%;
+  margin: auto;
+  display: flex;
+  gap: 18px;
+  animation: fadeZoom 0.25s ease;
+}
+
+@keyframes fadeZoom {
+  from { transform: scale(0.9); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+#pet-popup img,
+.popup-card img,
+.modal-content img {
+  width: 230px;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+#pet-popup h2,
+.popup-card h2,
+.modal-content h2 {
+  margin-bottom: 8px;
+  font-size: 22px;
+}
+
+#pet-popup p,
+.popup-card p,
+.modal-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 3px 0;
+  color: #444;
+}
+
+.popup-overlay,
+.modal,
+.popup-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Mobile */
+@media(max-width: 700px){
+  #pet-popup,
+  .popup-card,
+  .modal-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #pet-popup img,
+  .popup-card img,
+  .modal-content img {
+    width: 100%;
+    height: 260px;
+  }
+}
