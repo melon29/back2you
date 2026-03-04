@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Lost & Found Pets</title>
+
+  <!-- Your existing styles -->
+  <link rel="stylesheet" href="lostfoundpets.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+<header>
+  <h1 style="text-align:center; margin-top:20px;">
+    All Lost & Found Pets
+  </h1>
+</header>
+
+<section id="allPetsContainer" style="padding:40px;">
+</section>
+
+<script src="pets.js"></script>
+
+<script>
+const container = document.getElementById("allPetsContainer");
+
+function renderAllPets() {
+    container.innerHTML = "";
+
+    let pets = [];
+
+    try {
+        pets = JSON.parse(localStorage.getItem("petReports")) || [];
+    } catch (e) {
+        pets = [];
+    }
+
+    if (pets.length === 0) {
+        container.innerHTML = "<p>No pets reported yet.</p>";
+        return;
+    }
+
+    pets.forEach(pet => {
+        const card = document.createElement("div");
+        card.className = "pet-card";
+
+        card.innerHTML = `
+            <h3>${pet.name}</h3>
+            <p><strong>Category:</strong> ${pet.category}</p>
+            <p><strong>Type:</strong> ${pet.type}</p>
+            <p><strong>Gender:</strong> ${pet.gender}</p>
+            <p><strong>Breed:</strong> ${pet.breed}</p>
+            <p><strong>Location:</strong> ${pet.location}</p>
+            <p><strong>Date:</strong> ${pet.date}</p>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+renderAllPets();
+</script>
+
+</body>
+</html>
