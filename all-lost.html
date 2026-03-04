@@ -26,22 +26,31 @@
   function renderAllPets() {
     container.innerHTML = "";
 
-    if (!localStorage.getItem("pets")) {
+    const petsData = localStorage.getItem("pets");
+
+    if (!petsData) {
       container.innerHTML = "<p>No pets reported yet.</p>";
       return;
     }
 
-    const pets = JSON.parse(localStorage.getItem("pets"));
+    const pets = JSON.parse(petsData);
+
+    if (pets.length === 0) {
+      container.innerHTML = "<p>No pets reported yet.</p>";
+      return;
+    }
 
     pets.forEach(pet => {
       const card = document.createElement("div");
       card.className = "pet-card";
+
       card.innerHTML = `
-        <h3>${pet.name}</h3>
-        <p><strong>Type:</strong> ${pet.type}</p>
-        <p><strong>Status:</strong> ${pet.status}</p>
-        <p><strong>Location:</strong> ${pet.location}</p>
-      ;
+        <h3>${pet.name || "No Name"}</h3>
+        <p><strong>Type:</strong> ${pet.type || "Not specified"}</p>
+        <p><strong>Status:</strong> ${pet.status || "Unknown"}</p>
+        <p><strong>Location:</strong> ${pet.location || "Not provided"}</p>
+      `;
+
       container.appendChild(card);
     });
   }
